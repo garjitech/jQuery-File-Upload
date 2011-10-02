@@ -15,6 +15,13 @@
 $(function () {
     'use strict';
 
+    // Test for Directory selection support
+    var fileinput = document.createElement("input");
+    fileinput.type = "file";
+	if (!("webkitdirectory" in fileinput)) {
+		$('#fileupload .folderinput-button').remove();
+	}
+
     // Initialize the jQuery File Upload widget:
     $('#fileupload').fileupload();
 
